@@ -5,15 +5,15 @@ class Window:
         self.__width = width
         self.__height = height
         self.__rootWidget = Tk()
-        self.__rootWidget.title = "Maze Solver"
+        self.__rootWidget.title("Maze Solver")
         self.__canvas = Canvas(self.__rootWidget, bg="white", height=height, width=width)
         self.__canvas.pack(fill = BOTH, expand=1)
         self.__isRunning = False
         self.__rootWidget.protocol("WM_DELETE_WINDOW", self.close)
 
     def redraw(self):
-        self.__rootWidget.update_idletasks
-        self.__rootWidget.update
+        self.__rootWidget.update_idletasks()
+        self.__rootWidget.update()
 
     def wait_for_close(self):
         self.__isRunning = True
@@ -28,9 +28,9 @@ class Window:
         self.__isRunning = False
 
 class Point():
-    def __init__(self):
-        self.__x = 0
-        self.__y = 0
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
 class Line():
     def __init__(self, point1, point2):
